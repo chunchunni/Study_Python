@@ -83,9 +83,6 @@ print(a)
 '''
 
                                         #循环
-from typing import Sequence
-
-
 strings = ['q','w','e','r','t']
 for string in strings:                  #将string中的元素，挨个赋值给value然后输出。冒号“：”一定不可遗漏
     print(string)
