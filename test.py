@@ -83,6 +83,9 @@ print(a)
 '''
 
                                         #循环
+from typing import Sequence
+
+
 strings = ['q','w','e','r','t']
 for string in strings:                  #将string中的元素，挨个赋值给value然后输出。冒号“：”一定不可遗漏
     print(string)
@@ -91,4 +94,20 @@ print("循环结束")                       #使用缩进来判断代码行之�
 
 for value in range(1,5):                #使用range函数，生成一系列数字
     print(value)
-number = list(range(1,5))               #使用list函数，将range函数生成的数字转换为一个列表
+
+for value in range(1,10,5):             #使用range函数，从1开始计数，步长为5，上限为10
+    print(value)
+
+numbers = list(range(1,5))              #使用list函数，将range函数生成的数字转换为一个列表
+print(numbers)
+numbers = []
+for value in range(1,11):               #输出前十个数的平方
+    numbers.append(value**2)
+    print(numbers[value-1])
+
+squares = [value**2 for value in range(1,11)]   #列表解析方式创建列表，所使用的效果等同于前述循环的效果
+print(squares)
+
+print(min(numbers))                     #专门用于处理数字列表的函数：最小、最大、求和
+print(max(numbers))
+print(sum(numbers))
