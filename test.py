@@ -80,9 +80,7 @@ print(string)
 
 a=len(string)                           #len函数，确定列表的长度。计算长度时，计数从1开始
 print(a)
-'''
 
-                                        #循环
 strings = ['q','w','e','r','t']
 for string in strings:                  #将string中的元素，挨个赋值给value然后输出。冒号“：”一定不可遗漏
     print(string)
@@ -108,3 +106,29 @@ print(squares)
 print(min(numbers))                     #专门用于处理数字列表的函数：最小、最大、求和
 print(max(numbers))
 print(sum(numbers))
+
+print(numbers[1:3])                     #切片，可以访问指定位置范围内的元素
+print(numbers[:3])                      #未指定起始索引，默认从开头开始提取，:3即返回前三个元素
+print(numbers[4:])                      #未指定结束索引，默认终止于末尾
+print(numbers[-3:])                     #负数索引返回离列表末尾相应距离的元素，-3即返回最后三个元素
+
+copy_numbers = numbers[:]               #复制列表，同时省略开始和结束索引可以将一个列表复制给另一个新列表
+print(copy_numbers)
+copy_numbers.append('x')                #对复制列表的操作，不影响原列表
+print(copy_numbers)
+print(numbers)
+
+double_numbers = numbers                #将变量double_numbers关联到包含在numbers中的列表，这两个变量都指向同一个列表
+print(double_numbers)
+double_numbers.append('Y')
+print(double_numbers)
+print(numbers)                          #对double_numbers末端添加的新元素，改变了原列表
+'''
+
+                                        #元组操作
+numbers = (20,50)                       #定义拥有两个元素的元组
+print(numbers[0])
+#numbers[0] = 30                        #报错，因为元组中的元素值不可以修改
+print(numbers)
+numbers = (30,50)                       #元组的元素值不可以修改，但是可以给元组变量重新赋值
+print(numbers)
