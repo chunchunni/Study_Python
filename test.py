@@ -100,8 +100,8 @@ for value in range(1,11):               #输出前十个数的平方
     numbers.append(value**2)
     print(numbers[value-1])
 
-squares = [value**2 for value in range(1,11)]   #列表解析方式创建列表，所使用的效果等同于前述循环的效果
-print(squares)
+squares = [value**2 for value in range(1,11)]                                        
+print(squares)                          #列表解析方式创建列表，所使用的效果等同于前述循环的效果
 
 print(min(numbers))                     #专门用于处理数字列表的函数：最小、最大、求和
 print(max(numbers))
@@ -125,10 +125,71 @@ print(double_numbers)
 print(numbers)                          #对double_numbers末端添加的新元素，改变了原列表
 '''
 
-                                        #元组操作
+'''                                     #元组操作
 numbers = (20,50)                       #定义拥有两个元素的元组
 print(numbers[0])
 #numbers[0] = 30                        #报错，因为元组中的元素值不可以修改
 print(numbers)
 numbers = (30,50)                       #元组的元素值不可以修改，但是可以给元组变量重新赋值
 print(numbers)
+'''
+
+'''                                     #条件判断语句
+a = 4
+if a == 3:                              #if条件语句的使用,判断是否相等时，区分大小写
+    print("a = ",a)
+else:
+    print("不相等")
+if a != 3:
+    print("a不等于3")
+if a < 5 and a > 3:                     #and检测多个条件
+    print("And测试,正确")
+if a > 1 or a > 10:                     #or检测多个条件
+    print("Or测试，正确")
+
+age = 16
+if age < 14:                            #if-elif-else结构
+    print("免票")
+elif age < 18:
+    print("半票")
+elif age > 60:
+    print("老年人优惠")
+else:
+    print("全票")
+
+numbers = [1,2,3,4]
+if a in numbers:                        #in 判断值是否在列表中
+    print("a在numbers中")
+b = 5
+if b not in numbers:                    #not in 判断值是否不包括在列表中
+    print("b不在numbers中")
+
+flag1 = True                            #布尔表达式，用于设置标志
+flag2 = False
+if flag1:
+    print("True")
+if ~flag2:                              #~ 取反
+    print("False")
+'''
+
+                                        #字典
+lara = {'age':15,'sex':'man'}           #字典是一系列的键-值对，通过使用键来访问对应的值，                                       
+print(lara)                             #值可以是任意数据类型、列表、字典
+print(lara['sex'])
+lara['high'] = 170                      #添加键值对
+lara['major'] = 'CS'
+print(lara)
+lara['age'] = 16                        #修改键值对
+print(lara)
+del lara["major"]                       #使用del删除指定字典名和要删除的键
+print(lara)
+
+language = {                            #由类似对象组成的字典
+    'mike':'c',
+    'jack':'java',
+    'marry':'python',
+    }
+print("Marry's favorite language is " + #较长语句的分行输出
+    language['marry'].title()+
+    ".")
+
