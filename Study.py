@@ -172,7 +172,7 @@ if ~flag2:                              #~ 取反
     print("False")
 '''
 
-                                        #字典
+'''                                     #字典
 lara = {'age':15,'sex':'man'}           #字典是一系列的键-值对，通过使用键来访问对应的值，                                       
 print(lara)                             #值可以是任意数据类型、列表、字典
 print(lara['sex'])
@@ -184,12 +184,66 @@ print(lara)
 del lara["major"]                       #使用del删除指定字典名和要删除的键
 print(lara)
 
-language = {                            #由类似对象组成的字典
+languages = {                           #由类似对象组成的字典
     'mike':'c',
     'jack':'java',
     'marry':'python',
+    'edward':'ruby',
+    'phil':'python',
     }
 print("Marry's favorite language is " + #较长语句的分行输出
-    language['marry'].title()+
+    languages['marry'].title()+
     ".")
+                                        #遍历                                        
+for name, language in languages.items():#遍历字典中所有键值对
+    print("Name:" + name)               #方法item返回一个键值对列表，需要依次将键-值对存储到两个变量中
+    print("Language:" + language + "\n")#遍历字典时，键值对的返回顺序与存储顺序可能不同
 
+for name in languages.keys():           #遍历字典中所有的键
+    print(name.title())                 #方法keys仅提取所有的键，返回一个列表包含字典中所有的键
+for name in languages:                  #遍历字典时，默认遍历所有的键
+    print(name.title()) 
+print("\n")
+for name in sorted(languages.keys()):   #按序遍历字典中所有的键
+    print(name.title())
+
+for language in languages.values():     #遍历字典中所有的键,不考虑重复
+    print(language.title())
+print("\n")
+for language in set(languages.values()):#set方法，找出列表中不重复的元素并创建一个集合
+    print(language.title())
+
+                                        #嵌套
+lara = {'age':15,'sex':'man'}
+mike = {'age':16,'sex':'woman'}
+jack = {'age':17,'sex':'man'}
+persons = [lara, mike, jack]            #字典列表
+for person in persons:
+    print(person)
+
+pizza = {                               #在字典中存储列表
+    'crust':['thick'],
+    'toppings':['mushrooms','cheese'],
+}
+for topping in pizza['toppings']:
+    print(topping)
+for key, values in pizza.items():       #使用变量来存储列表，再使用循环输出列表
+    print("Value:"+ key)
+    for value in values:
+        print(value)
+
+persons = {                             #在字典中存储字典
+    'lara':{
+        'age':15,
+        'sex':'man',
+        },
+
+    'mike':{
+        'age':16,
+        'sex':'woman',
+        },
+    }
+for name, info in persons.items():       #使用变量来存储字典，再访问对应的键来对应的值打印输出
+    print("Name: " + name.title())
+    print("Age: " + str(info['age']) +"\tSex: " + info['sex'].title())
+'''
