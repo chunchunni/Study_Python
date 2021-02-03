@@ -243,7 +243,88 @@ persons = {                             #在字典中存储字典
         'sex':'woman',
         },
     }
-for name, info in persons.items():       #使用变量来存储字典，再访问对应的键来对应的值打印输出
+for name, info in persons.items():      #使用变量来存储字典，再访问对应的键来对应的值打印输出
     print("Name: " + name.title())
     print("Age: " + str(info['age']) +"\tSex: " + info['sex'].title())
+'''
+
+'''                                     #输入与循环
+message = input('input something and i will return to you:\n')
+                                        #input函数可以暂停程序，等待用户进行输入，并将输入存储到一个变量中
+                                        #input()接受一个参数，即向用户显示的提示或者说明
+print(message)
+introduce = 'can you tell us your name?'#创建多行字符串
+introduce += '\nwhat\'s your first name?'
+name = input(introduce)
+print("Hello," + name +'!')
+
+number = input('input a number\n')
+number = int(number)                    #input函数的输出值为字符串类型，可以使用int()函数将其转换为整数型
+print(number)
+number = number % 3                     #求模运算符
+print(number)
+
+count = 0
+while count <=5:                        #使用while循环
+    print(count)
+    count += 1
+
+introduce = "Input 'quit' to quit the program"
+introduce += "\nPlease input something:\n"
+message = ""
+while message != "quit":                #由用户选择退出时机
+    message = input(introduce)
+    print(message)
+
+flag = True
+while flag:                             #使用标志来选择退出时机
+    message = input(introduce)
+    if message == "quit":
+        flag = False
+    else:
+        print(message)
+
+while True:                             #使用break来立即退出循环，不再运行循环中余下的代码
+    message = input(introduce)
+    if message == "quit":
+        break
+    else:
+        print(message)
+
+count = 0
+while count < 5:                        #使用continue退出当前循环，不再执行此次循环中的余下代码。返回到while循环开头
+    count += 1
+    if count % 2 == 0:
+        continue
+    print(count)
+
+unconfirmed_users = ['alice','mike','marry']
+confirmed_users = []
+while unconfirmed_users:                #在列表之间移动元素
+    user = unconfirmed_users.pop()      #pop取尾
+    print("Verifying user:" + user)
+    confirmed_users.append(user)        #添加到尾端
+for user in confirmed_users:
+    print("Confirmed user:" + user)
+
+pets = ['dog', 'cat', 'dog', 'fish', 'cat', 'rabbit', 'cat']
+print(pets)
+while 'cat' in pets:                    #使用in方法来判断元素是否存在于列表中，再通过循环判断来删除每一个该元素
+    pets.remove('cat')
+print(pets)
+
+responses = {}
+flag = True
+while flag:                             #使用用户输出来填充字典
+    name = input("What's your name:\n")
+    response = input("Whinc mountain would you like to climb:\n")
+    responses[name] = response          #分别输出字典的键和值
+
+    repeat = input("If you like to continue?(yse/no)")
+    if repeat == 'no':                  #存储键值对
+        flag = False
+
+print("---Poll Results---")
+for name, response in responses.items():#输出键值对
+    print(name + " woule like to climb " + response)
 '''
