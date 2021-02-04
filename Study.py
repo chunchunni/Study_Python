@@ -328,3 +328,4 @@ print("---Poll Results---")
 for name, response in responses.items():#输出键值对
     print(name + " woule like to climb " + response)
 '''
+
