@@ -35,7 +35,7 @@ def name(first,last):
 message = name('jimi', 'mike')
 print(message)
 
-def name(first,last,middle=''):         #使用默认值让实参变成可选的
+def name(first,last,middle=''):         #使用默认值让实参变成可选的，默认值不加空格
     if middle:
         full_name = first + " " + middle + ' ' +last
     else:
@@ -90,4 +90,47 @@ completed = []
 design(undesigned[:],completed)         #使用切片表示法[:]，创建列表的副本，此时传递传递进函数的是副本而不是原件
 print(undesigned)                       #函数所作的任何修改也只影响副本，不影响原件
 print(completed)
+'''
+
+'''                                     #传递任意数量实参
+def names(*message):                    #形参*message创建一个名为message的空元组，并将接收到的所有值都封装到这个元组中
+    print(message)
+names('jack')
+names('mike','jim','jerry')
+
+def names(age = 0 ,*message):           #要接受不同类型的实参，必须在函数定义中将接纳任意数量实参的形参放在最后
+    print(age)
+    print(message)
+names(16, 'jack')
+names(18, 'mike', "jim")
+
+def persons(first, last, **user_info):  #能够接受任意数量的键-值对。形参**user_info创建一个空字典用于存储任意键值对
+    profile = {}
+    profile['first'] = first
+    profile['last'] = last
+    for key, vaule in user_info.items():
+        profile[key] = vaule
+    return profile
+user_profile = persons('pence', 'merry', location = 'WuHan', field = 'CS')
+print(user_profile)
+'''
+
+'''
+import import_example                   #导入创建的模块（.py文件）， import关键字打开了import_example.py文件，并将其中所有的函数复制到了本程序中
+import_example.persons(18, 'Mike', 'jim')#调用被导入模块中的函数，模块名.函数名
+'''
+
+'''
+from import_example import persons      #导入模块中的指定函数
+persons(18, 'Mike', 'jim')              #直接使用该函数
+from import_example import persons, hello #也可以导入多个指定函数
+hello()
+
+from import_example import persons as name #使用as给函数指定别名
+name(19, "nike")
+
+import import_example as ie             #使用as给模块指定别名
+ie.hello()
+
+from import_example import *            #使用星号*运算符可导入模块中的所有函数
 '''
