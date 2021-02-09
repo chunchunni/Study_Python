@@ -31,7 +31,7 @@ class Cars():
         self.year = year
         self.odometer_reading = 0       #设置默认属性值
 
-    def get_describe(self):           #描述车辆
+    def get_describe(self):             #描述车辆
         long_name = str(self.year) + ' ' + self.make + ' ' + self.model
         return long_name.title()
 
@@ -44,7 +44,7 @@ class Cars():
     def increment_odometer(self, miles):#递增属性值的方法
         self.odometer_reading += miles
 
-    def fill_gas(self):                     #加油
+    def fill_gas(self):                 #加油
         print("Gas Tank is fill.")
 
 my_car = Cars("audi", "A4", 2016)
