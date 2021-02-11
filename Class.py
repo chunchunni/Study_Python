@@ -1,6 +1,7 @@
 '''                                     #类
 class Dog():
     """
+    类名的命名应采用驼峰命名法，即每个单词首字母大写不加下划线
     定义一个Dog类
     类中的函数称为方法。_init_()是一个特殊的方法，每当使用Dog类创建实例时，Python都会自动运行它
     self、name、age三个形参。其中self形参必不可少，且必须位于其他形参前。
@@ -24,6 +25,7 @@ my_dog.roll()
 print("My dog's name is " + my_dog.name.title())#使用“.”来访问与实例相关的属性name。
 '''
 
+'''
 class Cars():
     def __init__(self, make, model, year):#初始化方法
         self.make = make
@@ -99,3 +101,37 @@ class ElectricCars(Cars):               #继承自Cars的ElectrinCars类
 my_ElCars = ElectricCars('tesla', "Model's", 2016)
 print(my_ElCars.get_describe())
 my_ElCars.battery.describe_battery()    #在实例my_ElCars中找到属性battery，再在该属性中找到battery实例可以调用的方法
+'''
+
+'''                                     #导入类
+from import_example import Cars         #打开import_example模块，并导入其中的Cars类
+my_car = Cars('audi','a4',2016)
+print(my_car.get_describe())
+my_car.odometer_reading = 23
+my_car.read_odometer()
+my_car.update_odometers(21)
+
+from import_example import Cars,ElectricCars #从一个模块中导入多个类
+my_tesla = ElectricCars('tesla','model s',2016)
+print(my_tesla.get_describe())
+my_tesla.battery.describe_battery()
+
+import import_example                   #导入一整个模块
+my_beetle = import_example.Cars('volkswagen','beetle',2016)
+print(my_beetle.get_describe())
+
+my_tesla = import_example.ElectricCars('tesla','roadster',2016)
+print(my_tesla.get_describe())
+
+from import_example import *            #导入模块中的所有类。但不建议，因为无法清楚具体导入了什么类；也可能导致命名冲突
+'''
+
+'''
+from import_example import Cars
+from import_example2 import ElectricCars#从不同的模块导入不同的类
+my_beetle = Cars('volkswagen','beetle',2016)
+print(my_beetle.get_describe())
+
+my_tesla = ElectricCars('tesla','roadster',2016)
+print(my_tesla.get_describe())
+'''
