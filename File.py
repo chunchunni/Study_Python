@@ -51,3 +51,65 @@ if birthday in pai:                     #测试生日是否在pai中
 else:
     print("Your birthday isn't in pai")
 """
+
+"""                                        #写入文件
+filename = 'writing_Example.txt'
+with open(filename, 'w') as fb:
+    '''
+    调用open函数时提供了两个实参，一个是打开文件名，另一个是指定模式
+    读取模式'r'，写入模式'w'，附加模式'a'，读取和写入模式'r+'
+
+    若写入文件不存在，则自动创建它。若省略模式实参，则默认参数为只读模式
+
+    当以写入模式'w'打开文件时需要注意，若指定的文件已经存在，则Python会在返回对象前将文件清空
+
+    Python只能将字符串写入文本文件。对于数值数据，必须先使用str函数将其转换为字符串格式
+    '''
+    fb.write("I love Python.")
+
+with open(filename, 'w') as fb:
+    fb.write("I don't love Python.")    #之前写入的I love Python被清空
+
+with open(filename, 'a') as fb:
+    fb.write("\nI love C.")             #附加模式下，不会清空原文件中的数据
+
+while True:                             #循环输入，不断添加行到文件中，且每条记录独占一行
+    print("Input end to eqit!")
+    guest = input("Please enter your name:")
+    if guest == 'end':
+        break
+    else:
+        print("Hello! " + guest)
+        with open("guest.txt",'a') as fb:
+            fb.write(guest+'\n')
+"""
+
+                                        #异常处理
+'''
+    每当发生让Python无法处理的错误时，就会创建一个异常对象。如果处理了异常，程序会继续运行；未对异常处理，程序将停止运行。
+    异常是使用try-except代码块进行处理的
+'''
+try:                                    #将可能引发错误的代码放在try-except代码块中
+    print(5/0)
+except ZeroDivisionError:               #除0错误
+    print("Can't divide by 0!")         #try-except后的代码将继续运行
+
+print("Give me two numbers, and I'll divide them.")
+print("Enter 'q' to quit.")
+while True:
+    first_number = input("\nFirst Number:")
+    if first_number == 'q':
+        break
+    second_number = input("\nSecond Number:")
+    try:
+        answer = int(first_number)/int(second_number)#字符串型需要转换为整数型才能进行除法
+    except ZeroDivisionError:
+        print("Can't divide by 0!")
+    else:
+        print(answer)
+
+try:
+    with open('example.txt') as fb:
+        contents = fb.read()
+except FileNotFoundError:               #文件不存在异常
+    print("Sorry, the file example.txt " + "doesn't exist.")
