@@ -43,3 +43,29 @@ class ElectricCars(Cars):               #继承自Cars的ElectrinCars类
     def __init__(self, make, model, year):
         super().__init__(make, model, year)
         self.battery = Battery()        #将实例对象用作属性
+
+import json
+def get_new_username():
+    username = input("What's your name?")
+    filename = 'username.json'
+    with open(filename,'w') as fb:
+        json.dump(username,fb)
+    return username
+
+def greet_user():                       #访问json中的数据，问候用户
+    username = get_stored_username()
+    if username:
+        print("Welcome back, " + username + "!")
+    else:
+        username = get_new_username()
+        print("We'll remember you when you come back, " + username + "!")
+
+def get_stored_username():              #如果存储了用户名，就获取它
+    filename = 'username.json'
+    try:
+        with open(filename) as fb:
+            username = json.load(fb)
+    except FileNotFoundError:
+        return None
+    else:
+        return username

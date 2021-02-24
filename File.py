@@ -146,3 +146,22 @@ with open("numbers.json",'w') as fb:
 with open('numbers.json') as fb:
     numbers = json.load(fb)             #使用json.load()加载存储在numbers.load中的信息，并将其存储在变量numbers中
 print(numbers)
+
+'''
+    保持和读取用户生成的数据
+    对于用户生成的数据，使用json保存可以避免程序停止时，运行用户的信息丢失。
+'''
+username = input("What's your name?")
+filename = 'username.json'
+with open(filename,'w') as fb:
+    json.dump(username,fb)              #写入数据
+    print("We will remember your name " + username + "!")
+
+with open(filename) as fb:
+    username = json.load(fb)            #读取数据
+    print("Welcome back " + username + "!")
+
+
+from import_example import *
+get_new_username()
+greet_user()                            #调用函数访问json中的数据来访问用户
