@@ -52,7 +52,7 @@ else:
     print("Your birthday isn't in pai")
 """
 
-"""                                        #写入文件
+"""                                     #写入文件
 filename = 'writing_Example.txt'
 with open(filename, 'w') as fb:
     '''
@@ -84,7 +84,7 @@ while True:                             #循环输入，不断添加行到文件
             fb.write(guest+'\n')
 """
 
-                                        #异常处理
+"""                                     #异常处理
 '''
     每当发生让Python无法处理的错误时，就会创建一个异常对象。如果处理了异常，程序会继续运行；未对异常处理，程序将停止运行。
     异常是使用try-except代码块进行处理的
@@ -113,3 +113,36 @@ try:
         contents = fb.read()
 except FileNotFoundError:               #文件不存在异常
     print("Sorry, the file example.txt " + "doesn't exist.")
+
+try:
+    with open('example.txt') as fb:
+        contents = fb.read()
+except FileNotFoundError:               #文件不存在异常
+    pass                                #pass语句让Python什么都不做
+
+filename = 'alice.txt'
+try:
+    with open(filename,'rb') as fb:     #rb的意思是以二进制方式读打开文件
+        contents = fb.read()
+except FileNotFoundError:
+    print("Sorry, the file Alice.txt dosen't exist")
+else:
+    words = contents.split()            #spilt方法根据一个字符串创建一个单词列表
+    len_words = len(words)
+    print("The file " + "has about " + str(len_words) +" words.")
+"""
+
+                                        #存储数据
+import json                             #导入json模块
+'''
+    使用json模块来存储数据。json模块可以将简单的数据结构存储在文件中，并在文件再次运行时加载该文件中的数据，
+    同时还可以使用json在Python程序之间分享数据。
+    json.dump()接受两个实参，要存储的数据以及可用于存储数据的文件对象
+'''
+numbers = [2,3,5,7,11,13]
+with open("numbers.json",'w') as fb:
+    json.dump(numbers,fb)
+
+with open('numbers.json') as fb:
+    numbers = json.load(fb)             #使用json.load()加载存储在numbers.load中的信息，并将其存储在变量numbers中
+print(numbers)
