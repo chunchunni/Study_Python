@@ -1,6 +1,7 @@
 import sys
 import pygame
 from settings import Settings
+from ship import Ship
 
 def run_game():
     # 初始化游戏
@@ -11,6 +12,8 @@ def run_game():
     # 创建窗口
     pygame.display.set_caption("Alien Invasion")  
 
+    ship = Ship(screen)
+
     while True:
         for event in pygame.event.get():
             # 单击关闭窗口
@@ -18,6 +21,9 @@ def run_game():
                 sys.exit()
         # 更新时会重新绘制屏幕
         screen.fill(ai_settings.bg_color)
+
+        ship.blitme()
+
         # 更新屏幕，隐藏旧屏幕
         pygame.display.flip()
 
